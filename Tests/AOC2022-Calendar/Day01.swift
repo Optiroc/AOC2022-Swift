@@ -26,8 +26,8 @@ final class Day01: XCTestCase {
 
         let puzzleHarvestMax = countCalories(puzzleInput).max() ?? 0
 
-        print("Most calories in sample:", sampleHarvestMax)
-        print("Most calories in puzzle:", puzzleHarvestMax)
+        print("01.1a Most calories in sample:", sampleHarvestMax)
+        print("01.1b Most calories in puzzle:", puzzleHarvestMax)
 
         XCTAssertEqual(24000, sampleHarvestMax)
         XCTAssertEqual(71780, puzzleHarvestMax)
@@ -42,8 +42,8 @@ final class Day01: XCTestCase {
             .sorted(by: { $0 > $1 })[0...2]
             .reduce(0, +)
 
-        print("Sum of top three bags in sample:", sampleHarvestTop3)
-        print("Sum of top three bags in puzzle:", puzzleHarvestTop3)
+        print("01.2a Sum of top three bags in sample:", sampleHarvestTop3)
+        print("01.2b Sum of top three bags in puzzle:", puzzleHarvestTop3)
 
         XCTAssertEqual(45000, sampleHarvestTop3)
         XCTAssertEqual(212489, puzzleHarvestTop3)

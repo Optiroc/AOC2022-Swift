@@ -37,8 +37,7 @@ public enum RockPaperScissors {
         case "A", "X": return .rock
         case "B", "Y": return .paper
         case "C", "Z": return .scissors
-        default:
-            fatalError("Unknown strategy token '\(s)'")
+        default: fatalError("Unknown strategy token '\(s)'")
         }
     }
 
@@ -53,7 +52,6 @@ public enum RockPaperScissors {
         case let (x, y) where x == y: outcome = 3
         default: outcome = 0
         }
-
         return outcome + pair.1.value
     }
 
@@ -64,20 +62,20 @@ public enum RockPaperScissors {
         case draw
         case win
 
+        var value: Int {
+            switch self {
+            case .lose: return 0
+            case .draw: return 3
+            case .win: return 6
+            }
+        }
+
         static func from(_ s: Character) -> Self {
             switch s {
             case "X": return .lose
             case "Y": return .draw
             case "Z": return .win
             default: fatalError("Unknown strategy token '\(s)'")
-            }
-        }
-
-        var value: Int {
-            switch self {
-            case .lose: return 0
-            case .draw: return 3
-            case .win: return 6
             }
         }
     }
@@ -93,7 +91,6 @@ public enum RockPaperScissors {
         case (let otherShape, .lose): shape = losing(over: otherShape)
         case (let otherShape, .draw): shape = otherShape
         }
-
         return pair.1.value + shape.value
     }
 }

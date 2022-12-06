@@ -23,8 +23,8 @@ final class Day02: XCTestCase {
             .map { RockPaperScissors.pairFrom($0) }
             .reduce(into: 0) { $0 += RockPaperScissors.score($1) }
 
-        print("Score following sample strategy:", sampleScore)
-        print("Score following puzzle strategy:", puzzleScore)
+        print("02.1a Score following sample strategy:", sampleScore)
+        print("02.1b Score following puzzle strategy:", puzzleScore)
 
         XCTAssertEqual(15, sampleScore)
         XCTAssertEqual(13221, puzzleScore)
@@ -39,8 +39,8 @@ final class Day02: XCTestCase {
             .map { RockPaperScissors.strategyPairFrom($0) }
             .reduce(into: 0) { $0 += RockPaperScissors.score($1) }
 
-        print("Score following sample crypted strategy:", sampleScore)
-        print("Score following puzzle crypted strategy:", puzzleScore)
+        print("02.2a Score following sample crypted strategy:", sampleScore)
+        print("02.2b Score following puzzle crypted strategy:", puzzleScore)
 
         XCTAssertEqual(12, sampleScore)
         XCTAssertEqual(13131, puzzleScore)
