@@ -3,7 +3,7 @@ name: AOC2022
 on: [push]
 
 jobs:
-  build:
+  test:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
