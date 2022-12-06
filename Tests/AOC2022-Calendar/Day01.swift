@@ -21,7 +21,7 @@ final class Day01: XCTestCase {
             }
     }
 
-    func testDay01Part1() throws {
+    func testDay01Part1() {
         let sampleHarvestMax = countCalories(sampleInput).max() ?? 0
 
         let puzzleHarvestMax = countCalories(puzzleInput).max() ?? 0
@@ -33,7 +33,7 @@ final class Day01: XCTestCase {
         XCTAssertEqual(71780, puzzleHarvestMax)
     }
 
-    func testDay01Part2() throws {
+    func testDay01Part2() {
         let sampleHarvestTop3 = countCalories(sampleInput)
             .sorted(by: { $0 > $1 })[0...2]
             .reduce(0, +)
