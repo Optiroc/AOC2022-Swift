@@ -1,0 +1,19 @@
+name: AOC2022
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Install Swift
+      uses: slashmo/install-swift@v0.3.0
+      with:
+        version: 5.7
+    - uses: actions/checkout@v2
+    - name: Run tests
+      run: swift test
