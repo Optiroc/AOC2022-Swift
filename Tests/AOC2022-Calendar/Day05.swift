@@ -12,15 +12,13 @@ final class Day05: XCTestCase {
     /// https://adventofcode.com/2022/day/5/input
     let puzzleInput = PuzzleInput.getLines(name: "day05_input")
 
-    func parseInput(_ input: [String]) -> (SupplyStacks<Character>, [(Int, Int, Int)]) {
-        let base = input.split(separator: "")
-        var state = Array(base[0])
-        let index = state.popLast()!
+    func parseInitState(_ input: [String]) -> SupplyStacks<Character> {
+        var input = input
+        let index = input.popLast()!
         let columns = Int(index.split(separator: " ").last!)!
-
         let stacks = SupplyStacks<Character>(stacks: columns)
 
-        for row in state {
+        for row in input {
             let chars = Array(row).map { $0.isWhitespace ? nil : $0 }
             for column in 0..<columns {
                 if let char = chars.at(1 + column * 4), let char {
@@ -28,13 +26,19 @@ final class Day05: XCTestCase {
                 }
             }
         }
+        return stacks
+    }
 
-        let moves = base[1].map {
+    func parseMoves(_ input: [String]) -> [(Int, Int, Int)] {
+        input.map {
             let words = $0.components(separatedBy: .whitespaces)
             return (Int(words[1])!, Int(words[3])! - 1, Int(words[5])! - 1)
         }
+    }
 
-        return (stacks, moves)
+    func parseInput(_ input: [String]) -> (SupplyStacks<Character>, [(Int, Int, Int)]) {
+        let parts = input.split(separator: "")
+        return (parseInitState(Array(parts[0])), parseMoves(Array(parts[1])))
     }
 
     func testDay05Part1() {
