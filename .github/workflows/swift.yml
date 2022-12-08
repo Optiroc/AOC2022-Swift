@@ -1,11 +1,13 @@
-name: AOC2022
+# Needs macos-12
 
-on: [push]
-
-jobs:
-  test:
-    runs-on: macos-13
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run tests
-        run: swift test
+#name: AOC2022
+#
+#on: [push]
+#
+#jobs:
+#  test:
+#    runs-on: macos-latest
+#    steps:
+#      - uses: actions/checkout@v3
+#      - name: Run tests
+#        run: swift test
