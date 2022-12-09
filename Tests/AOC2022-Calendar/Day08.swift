@@ -14,7 +14,7 @@ final class Day08: XCTestCase {
     let puzzleInput = PuzzleInput.getLines(name: "day08_input")
         .compactMap { $0.count > 0 ? $0 : nil }
 
-    func testDay07Part1() {
+    func testDay08Part1() {
         let sampleMatrix = Matrix.load(sampleInput)
         let sampleVisible = TreeHouse.scanVisibleTrees(in: sampleMatrix)
 
@@ -28,7 +28,7 @@ final class Day08: XCTestCase {
         XCTAssertEqual(1690, puzzleVisible)
     }
 
-    func testDay07Part2() {
+    func testDay08Part2() {
         let sampleMatrix = Matrix.load(sampleInput)
         let sampleScore = TreeHouse.maxScenicScore(in: sampleMatrix)
 
