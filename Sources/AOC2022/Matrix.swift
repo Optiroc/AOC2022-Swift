@@ -50,7 +50,7 @@ extension Matrix {
     }
 
     struct Row<T>: Sequence, IteratorProtocol, LazySequenceProtocol {
-        private var matrix: Matrix<T>
+        private let matrix: Matrix<T>
         private let row: Int
         private var index: Int
         private var iterations: Int
@@ -71,15 +71,6 @@ extension Matrix {
             }
             return matrix.storage[index]
         }
-        
-        subscript(column: Int) -> T {
-            get {
-                matrix.storage[matrix.columns * row + column]
-            }
-            set {
-                matrix.storage[matrix.columns * row + column] = newValue
-            }
-        }
     }
 }
 
@@ -90,7 +81,7 @@ extension Matrix {
     }
 
     struct Column<T>: Sequence, IteratorProtocol, LazySequenceProtocol {
-        private var matrix: Matrix<T>
+        private let matrix: Matrix<T>
         private let column: Int
         private var index: Int
         private var iterations: Int
@@ -110,15 +101,6 @@ extension Matrix {
                 iterations -= 1
             }
             return matrix.storage[index]
-        }
-        
-        subscript(row: Int) -> T {
-            get {
-                matrix.storage[matrix.columns * row + column]
-            }
-            set {
-                matrix.storage[matrix.columns * row + column] = newValue
-            }
         }
     }
 }
